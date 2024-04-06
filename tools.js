@@ -19,3 +19,10 @@ export const displayTodos = (todos) => {
 	}
 	return r;
 };
+
+export const displayAdded = (todo) => {
+	let r = '';
+	r += 'ADDED:\n';
+	r += tools.displayTodo(todo);
+	return r;
+};
