@@ -2,7 +2,7 @@
 
 - This is a collection of code that connects to a MongoDB Atlas database via Mongo and Mongoose commands.
 - The CRUD CLI uses Mongoose to list, add, delete and edit todos in a database collection at MongoDB Atlas.
-- Below are instructions on how to restrict a MongoDB Atlas user to only be able to read/write to a specifig database collection.
+- Below are instructions on how to restrict a MongoDB Atlas user to only be able to read/write to a specific database collection.
 
 ![democlietodolist](https://github.com/edwardtanguay/starter-mongo-mongoose-atlas/assets/446574/89ee0d10-0944-41b5-b8ad-732422343020)
 
