@@ -7,6 +7,15 @@ const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWOR
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 await mongoose.connect(uri, clientOptions);
 
+const { Schema } = mongoose;
+
+const todoSchema = new Schema({
+	title: String,
+	stars: Number,
+	finished: Boolean
+});
+
+
 export const getAllTodos = async () => {
 	return new Promise((resolve, reject) => {
 		try {
@@ -14,6 +23,25 @@ export const getAllTodos = async () => {
 				const response = mongoose.connection.db.collection(process.env.MONGO_COLLECTION);
 				const todos = await response.find().toArray();
 				resolve(todos);
+			})();
+		}
+		catch (error) {
+			console.log('error', error);
+		}
+	});
+};
+
+export const addTodo = async (todo) => {
+	return new Promise((resolve, reject) => {
+		try {
+			(async () => {
+				const TodoModel = mongoose.model('todo', todoSchema);
+				const todoDoc = new TodoModel();
+				todoDoc.title = 'nnn';
+				await todoDoc.save();
+				// const response = mongoose.connection.db.collection(process.env.MONGO_COLLECTION);
+				// const todos = await response.find().toArray();
+				resolve(todoDoc.id);
 			})();
 		}
 		catch (error) {

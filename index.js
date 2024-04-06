@@ -1,23 +1,22 @@
 import * as db from './db.js';
+import * as tools from './tools.js';
 
 const command = process.argv[2];
 const title = process.argv[3];
-
-const displayTodo = (todo) => {
-	return `${todo.title} - ${todo.stars} stars - ${todo.finished ? 'finished' : 'todo'}`;
-};
 
 switch (command) {
 	case "list":
 		const todos = await db.getAllTodos();
 		let count = 1;
+		console.log('LISTS OF TODOS:');
 		for (const todo of todos) {
-			console.log(`${count}. ${displayTodo(todo)}`);
+			console.log(`${count}. ${tools.displayTodo(todo)}`);
 			count++;
 		}
 		break;
 	case "add":
-		console.log('todo: add');
+		const id = await db.addTodo({ title: 'okok' });
+		console.log(id);
 		break;
 	case "edit":
 		console.log('todo: edit');
