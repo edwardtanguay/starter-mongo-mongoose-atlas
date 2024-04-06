@@ -23,7 +23,10 @@ switch (command) {
 		console.log(tools.displaySingle('DELETED', todo));
 		break;
 	case "edit":
-		console.log('todo: edit');
+		id = process.argv[3];
+		title = process.argv[4];
+		todo = await db.editTodo(id, title);
+		console.log(tools.displaySingle('EDITED', todo));
 		break;
 	default:
 		console.log('TODO LIST CLI - available commands:');
@@ -31,6 +34,7 @@ switch (command) {
 		console.log('npm run todos list');
 		console.log('npm run todos add "clean kitchen"');
 		console.log('npm run todos delete 66114bb7e99056b3ffba3734');
+		console.log('npm run todos edit 66114da9796389d01c014f7b "clean bedroom"');
 		console.log('-------------------------------------------');
 		break;
 }

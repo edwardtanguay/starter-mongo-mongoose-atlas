@@ -51,8 +51,27 @@ export const deleteTodo = async (id) => {
 		try {
 			(async () => {
 				const TodoModel = mongoose.model('todo', todoSchema);
-				const result = await TodoModel.findByIdAndDelete(id);
-				resolve(result);
+				const todo = await TodoModel.findByIdAndDelete(id);
+				resolve(todo);
+			})();
+		}
+		catch (error) {
+			reject({ message: `ERROR: ${error.message}` });
+		}
+	});
+};
+
+export const editTodo = async (id, title) => {
+	return new Promise((resolve, reject) => {
+		try {
+			(async () => {
+				const TodoModel = mongoose.model('todo', todoSchema);
+
+				const filter = { _id: id };
+				const update = { title };
+				let todo = await TodoModel.findOneAndUpdate(filter, update);
+				todo.title = title;
+				resolve(todo);
 			})();
 		}
 		catch (error) {
