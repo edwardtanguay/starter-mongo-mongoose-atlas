@@ -2,6 +2,8 @@
 
 This is code that connects to a MongoDB Atlas database via Mongo and Mongoose. 
 
+![democlietodolist](https://github.com/edwardtanguay/starter-mongo-mongoose-atlas/assets/446574/89ee0d10-0944-41b5-b8ad-732422343020)
+
 ## setup
 
 - clone locally
