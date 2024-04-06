@@ -1,4 +1,4 @@
-import * as db from './db';
+import * as db from './db.js';
 
 const command = process.argv[2];
 const title = process.argv[3];
@@ -6,6 +6,7 @@ const title = process.argv[3];
 switch (command) {
 	case "list":
 		const todos = await db.getAllTodos();
+		console.log(todos);
 		break;
 	case "add":
 		console.log('todo: add');
