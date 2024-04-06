@@ -1,4 +1,4 @@
-# template-mongo-mongoose-atlas
+# starter-mongo-mongoose-atlas
 
 This is code that connects to a MongoDB Atlas database via Mongo and Mongoose. 
 
