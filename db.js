@@ -18,10 +18,6 @@ export const getAllTodos = async () => {
 		}
 		catch (error) {
 			console.log('error', error);
-		} finally {
-			(async () => {
-				// await mongoose.disconnect();
-			})();
 		}
 	});
 };
