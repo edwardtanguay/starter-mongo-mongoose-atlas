@@ -1,6 +1,6 @@
 # template-mongo-mongoose-atlas
 
-This template gives you code to connect to a MongoDB Atlas database via Mongo and Mongoose. 
+This is code that connects to a MongoDB Atlas database via Mongo and Mongoose. 
 
 # setup
 
