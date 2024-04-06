@@ -45,3 +45,18 @@ export const addTodo = async (todo) => {
 		}
 	});
 };
+
+export const deleteTodo = async (id) => {
+	return new Promise((resolve, reject) => {
+		try {
+			(async () => {
+				const TodoModel = mongoose.model('todo', todoSchema);
+				const result = await TodoModel.findByIdAndDelete(id);
+				resolve(result);
+			})();
+		}
+		catch (error) {
+			reject({ message: `ERROR: ${error.message}` });
+		}
+	});
+};

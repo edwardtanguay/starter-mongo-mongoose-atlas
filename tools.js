@@ -13,16 +13,20 @@ export const displayTodos = (todos) => {
 	let r = '';
 	let count = 1;
 	r += 'LIST OF TODOS:\n';
-	for (const todo of todos) {
-		r += `${count}. ${tools.displayTodo(todo)}\n`;
-		count++;
+	if (todos.length > 0) {
+		for (const todo of todos) {
+			r += `${count}. ${tools.displayTodo(todo)}\n`;
+			count++;
+		}
+	} else {
+		r += '(none)';
 	}
 	return r;
 };
 
-export const displayAdded = (todo) => {
+export const displaySingle = (title, todo) => {
 	let r = '';
-	r += 'ADDED:\n';
+	r += `${title}:\n`;
 	r += tools.displayTodo(todo);
 	return r;
 };
