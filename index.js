@@ -5,8 +5,8 @@ const title = process.argv[3];
 
 switch (command) {
 	case "list":
-		const todos = db.getAllTodos();
-		// console.log('returned todos', todos);
+		const todos = await db.getAllTodos();
+		console.log('returned todos', todos);
 		break;
 	case "add":
 		console.log('todo: add');

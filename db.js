@@ -8,14 +8,20 @@ const clientOptions = { serverApi: { version: '1', strict: true, deprecationErro
 await mongoose.connect(uri, clientOptions);
 
 export const getAllTodos = async () => {
-	try {
-		const response = mongoose.connection.db.collection(process.env.MONGO_COLLECTION);
-		const todos = await response.find().toArray();
-		console.log('todos', todos);
-	}
-	catch (error) {
-		console.log('error', error);
-	} finally {
-		await mongoose.disconnect();
-	}
+	return new Promise((resolve, reject) => {
+		try {
+			(async () => {
+				const response = mongoose.connection.db.collection(process.env.MONGO_COLLECTION);
+				const todos = await response.find().toArray();
+				resolve(todos);
+			})();
+		}
+		catch (error) {
+			console.log('error', error);
+		} finally {
+			(async () => {
+				// await mongoose.disconnect();
+			})();
+		}
+	});
 };
