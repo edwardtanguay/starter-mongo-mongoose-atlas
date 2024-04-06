@@ -15,7 +15,6 @@ const todoSchema = new Schema({
 	finished: Boolean
 });
 
-
 export const getAllTodos = async () => {
 	return new Promise((resolve, reject) => {
 		try {
@@ -26,7 +25,7 @@ export const getAllTodos = async () => {
 			})();
 		}
 		catch (error) {
-			console.log('error', error);
+			reject({ message: `ERROR: ${error.message}` });
 		}
 	});
 };
@@ -36,16 +35,13 @@ export const addTodo = async (todo) => {
 		try {
 			(async () => {
 				const TodoModel = mongoose.model('todo', todoSchema);
-				const todoDoc = new TodoModel();
-				todoDoc.title = 'nnn';
+				const todoDoc = new TodoModel(todo);
 				await todoDoc.save();
-				// const response = mongoose.connection.db.collection(process.env.MONGO_COLLECTION);
-				// const todos = await response.find().toArray();
-				resolve(todoDoc.id);
+				resolve(todoDoc);
 			})();
 		}
 		catch (error) {
-			console.log('error', error);
+			reject({ message: `ERROR: ${error.message}` });
 		}
 	});
 };

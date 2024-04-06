@@ -7,16 +7,10 @@ const title = process.argv[3];
 switch (command) {
 	case "list":
 		const todos = await db.getAllTodos();
-		let count = 1;
-		console.log('LISTS OF TODOS:');
-		for (const todo of todos) {
-			console.log(`${count}. ${tools.displayTodo(todo)}`);
-			count++;
-		}
+		console.log(tools.displayTodos(todos));
 		break;
 	case "add":
-		const id = await db.addTodo({ title: 'okok' });
-		console.log(id);
+		const id = await db.addTodo({ title, stars: 3, finished: false });
 		break;
 	case "edit":
 		console.log('todo: edit');
