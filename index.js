@@ -1,9 +1,11 @@
+import * as db from './db';
+
 const command = process.argv[2];
 const title = process.argv[3];
 
 switch (command) {
 	case "list":
-		console.log('todo: list');
+		const todos = await db.getAllTodos();
 		break;
 	case "add":
 		console.log('todo: add');
