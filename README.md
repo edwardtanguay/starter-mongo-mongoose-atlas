@@ -2,7 +2,7 @@
 
 This is code that connects to a MongoDB Atlas database via Mongo and Mongoose. 
 
-# setup
+## setup
 
 - clone locally
 - `npm i`
@@ -16,8 +16,14 @@ MONGO_DATABASE = nnn
 MONGO_COLLECTION = nnn
 ```
 
-# execute
+## execute
 
 - `node index_mongo.js`
 - `node index_mongoose.js`
 - (coming soon...) npm run todos add "go to store"
+
+## set up a MongoDB user that only has read/write access to a specific database and collection
+
+Note that you have to create both a (1) **Custom Role** and (2) **Specific Privileges**:
+
+![grafik](https://github.com/edwardtanguay/starter-mongo-mongoose-atlas/assets/446574/4926f497-96eb-4d12-a5fd-dd45c855785f)
